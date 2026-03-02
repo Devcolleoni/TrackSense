@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track-Sense</title>
+</head>
+<body>
+    
+<h1>Simulador Financeiro Track Sense </h1>
+
+Produção por hora: <input type="text" id="ipt_latas"> <br> <br>
+
+Horas trabalhadas por dia: <input type="text" id="horasPdia"> <br> <br>
+
+Dias Trabalhados por Mês: <input type="text" id="ipt_DiasPmes"> <br> <br> 
+
+valor da venda por lata: <input type="text" id="vendaPlata"> <br> <br>
+
+
+<button onclick="calcular()">Simular</button> <br><br>
+
+<h3 id="exibir"></h3>
+
+
+</body>
+</html>
+<script>
+
+    function calcular() {
+        let latas = Number(ipt_latas.value)
+        let Horas_Pdia = Number(horasPdia.value)
+        let diasPmes = Number(ipt_DiasPmes.value)
+        let valorVenda = Number(vendaPlata.value)
+
+        if (latas <= 0 || Horas_Pdia <= 0 || diasPmes <=0 || valorVenda <= 0) {
+
+            exibir.innerHTML = "Valor de algum dado Invalido, Por Favor Verifique"
+            
+        }
+
+        else {
+
+            let producaoMensal = latas * Horas_Pdia * diasPmes
+
+            let faturamentoMensal = producaoMensal * valorVenda
+
+            let perdaMensal = faturamentoMensal * 0.03
+
+            let economiaMensal = perdaMensal * 0.5
+
+            let mesesRetorno = 5000 / economiaMensal
+
+            exibir.innerHTML =
+            
+            "Produção mensal: " + producaoMensal + " latas <br><br>" +
+            "Faturamento mensal: R$ " + faturamentoMensal.toFixed(2) + "<br><br>" +
+            "Perda mensal estimada: R$ " + perdaMensal.toFixed(2) + "<br><br>" +
+            "Economia com TrackSense: R$ " + economiaMensal.toFixed(2) + "<br><br>" +
+            "Retorno do investimento em: " + mesesRetorno.toFixed(1) + " meses"
+        }
+    }
+
+</script>
