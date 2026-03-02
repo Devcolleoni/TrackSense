@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - TrackSense</title>
+</head>
+<body style="background-color: #F2ECE4;">
+    
+    <h2><b><i>Calculadora Financeira - TrackSense</i></b></h2>   <br> 
+    Informe a quantidade média de paradas por mês:
+    <input type="text" id="input_paradas"> <br><br>
+
+    Informe o tempo médio parado (segundos):
+    <input type="text" id="input_tempo"> <br><br>
+
+    Informe a produção por minuto:
+    <input type="text" id="input_producao"> <br><br>
+
+    Informe o valor unitário do produto (R$):
+    <input type="text" id="input_valor"> <br><br>
+
+    <button onclick="calcular()"><b>Calcular impacto financeiro</b></button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    function calcular() {
+
+    let paradas = Number(input_paradas.value);
+    let tempoSeg = Number(input_tempo.value);
+    let producaoMin = Number(input_producao.value);
+    let valor = Number(input_valor.value);
+
+    // converter produção por minuto para produção por segundo
+    let producaoSeg = producaoMin / 60;
+
+    // calcular perda em unidades
+    let perdaUnidades = paradas * tempoSeg * producaoSeg;
+
+    // impacto financeiro
+    let perdaFinanceira = perdaUnidades * valor;
+
+    // economia com redução de 20% (justificativa do porque a empresa deve comprar nossa solução)
+    let economia = perdaFinanceira * 0.20;
+
+    div_mensagem.innerHTML =
+        "Perda mensal estimada: R$ " + perdaFinanceira.toFixed(2) +
+        "<br>Economia com redução de 20% das paradas: R$ " + economia.toFixed(2);
+
+    if (perdaFinanceira > 10000) {
+        div_mensagem.innerHTML += 
+        "<br><br><b style='color:red;'>ALERTA CRÍTICO:</b> Alto impacto financeiro causado pelas paradas.";
+    }
+    else if (perdaFinanceira > 5000) {
+        div_mensagem.innerHTML += 
+        "<br><br><b style='color:orange;'>Atenção:</b> Impacto financeiro moderado.";
+    }
+    else {
+        div_mensagem.innerHTML += 
+        "<br><br><b style='color:green;'>Impacto sob controle.</b>";
+    }
+
+}
+</script>
