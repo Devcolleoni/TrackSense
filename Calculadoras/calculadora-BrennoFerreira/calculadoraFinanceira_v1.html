@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #F4F6F8;">
+
+
+    <h1><b>Calculadora Financeira</b></h1>
+
+
+    Latas produzidas por Dia:<input type="text" id="input_latasProduzidasDia">
+    <br><br>
+    Valor da produção da Lata:<input type="text" id="input_valorLata">
+    <br><br>
+    Dias Trabalhados por Mês:<input type="text" id="input_diasTrabalhados">
+    <br><br>
+
+    <button onclick="calculo()"><b>Calcule</b></button>
+
+    <div id="div_exibir"></div>
+
+<span>
+</body>
+</html>
+<script>
+
+    function calculo(){
+        let latasProduzidas = Number(input_latasProduzidasDia.value);
+        let valorLata = Number(input_valorLata.value);
+        let diasTrabalhados = Number(input_diasTrabalhados.value);
+        let valorTotalDia = latasProduzidas * valorLata;
+        let valorTotalMes = diasTrabalhados * valorTotalDia;
+        let valorTotalAno = valorTotalMes * 12;
+        let producaoMes = latasProduzidas * diasTrabalhados;
+        
+        div_exibir.innerHTML = `
+        
+        <br> <i>Produção Mensal : <b>${producaoMes}</b></i> <br><br>
+
+        <i>Valor Perdidio Dia: <span style='color: red;'>R$${valorTotalDia.toLocaleString('pt-BR')}</span></i>  <br> 
+        <i>Valor Perdido Mês: <span style='color: red;'>R$${valorTotalMes.toLocaleString('pt-BR')}</span></i>   <br> 
+        <i>Valor Perdido Ano: <span style='color: red;'>R$${valorTotalAno.toLocaleString('pt-BR')}</span></i>
+        
+        `
+
+        
+    }
+
+</script>
