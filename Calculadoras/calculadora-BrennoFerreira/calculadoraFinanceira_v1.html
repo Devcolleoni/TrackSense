@@ -31,6 +31,7 @@
         let latasProduzidas = Number(input_latasProduzidasDia.value);
         let valorLata = Number(input_valorLata.value);
         let diasTrabalhados = Number(input_diasTrabalhados.value);
+        
         let valorTotalDia = latasProduzidas * valorLata;
         let valorTotalMes = diasTrabalhados * valorTotalDia;
         let valorTotalAno = valorTotalMes * 12;
@@ -38,7 +39,7 @@
         
         div_exibir.innerHTML = `
         
-        <br> <i>Produção Mensal : <b>${producaoMes}</b></i> <br><br>
+        <br> <i>Produção Mensal : <b>${producaoMes.toLocaleString('pt-BR')}</b></i> <br><br>
 
         <i>Valor Perdidio Dia: <span style='color: red;'>R$${valorTotalDia.toLocaleString('pt-BR')}</span></i>  <br> 
         <i>Valor Perdido Mês: <span style='color: red;'>R$${valorTotalMes.toLocaleString('pt-BR')}</span></i>   <br> 
