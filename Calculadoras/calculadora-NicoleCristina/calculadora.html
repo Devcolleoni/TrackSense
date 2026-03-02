@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title>Calculadora Financeira - TrackSense</title>
+
+    Valor unitário por lata: <input type="text" id="input_unitario"><br><br>
+    Quantidade de latas produzidas: <input type="text" id="input_quantidade"><br><br>
+    Perda(em %): <input type="text" id="input_porcentagem"><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        let unitario = Number(input_unitario.value)
+        let quantidade = Number(input_quantidade.value)
+        let porcentagem = Number(input_porcentagem.value)
+
+        let latasPerdidas = quantidade * (porcentagem / 100)
+        let aproveitamento = quantidade - latasPerdidas
+        let receita = quantidade * unitario
+        
+
+        if(unitario <= 0 || quantidade <= 0 || porcentagem <= 0 ){
+            div_mensagem.innerHTML = 'Valor está inválido! Preencha os campos corretamente'
+        }
+
+        else{
+            div_mensagem.innerHTML = `Sua perca será de :<br>
+            Latas perdidas:${latasPerdidas}<br>
+            Valor do aproveitamento: R$${aproveitamento}<br>
+            Valor da perda:R$${receita}<br>`
+        }
+
+
+    }
+</script>
