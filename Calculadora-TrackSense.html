@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdas Produtivas TrackSense</title>
+</head>
+<body>
+    <div id="div_contexto">
+        <H1>TrackSense</H1>
+
+        <p>Simule as perdas produtivas causadas por erros de contagem e visualize
+         o prejuízo financeiro da operação em poucos segundos. </p>
+    </div>
+
+    <div id="div_inputs">
+        <H1>Calculadora de Perdas Produtivas</H1> <br>
+
+        <b>Produção Diária Esperada</b> <br>
+        <input type="number" id="ipt_prodDiaria"> <br><br>
+
+        <b>Produção Registrada Incorretamente (% Erro)</b> <br>
+        <input type="number" id="ipt_percErro"> <br><br>
+
+        <b>Valor por Lata (R$)</b> <br>
+        <input type="number" id="ipt_valorLata"> <br><br>
+
+        <b>Dias Trabalhados no Mês</b> <br>
+        <input type="number" id="ipt_diasTrabalhados">
+
+        <div id="div_mensagem"></div> <br>
+
+        <button onclick="calcular()">Calcular</button>
+    </div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        // Setup para receber os valores do inputs e transformalos em numeros
+        let producaoDiaria = Number(ipt_prodDiaria.value)
+        let percentErro = Number(ipt_percErro.value)
+        let valorLata = Number(ipt_valorLata.value)
+        let diasTrabalhados = Number(ipt_diasTrabalhados.value)
+        
+        // Realização dos cálculos 
+        let perdaDiaria = producaoDiaria * (percentErro / 100) * valorLata
+        let perdaMensal = perdaDiaria * diasTrabalhados
+        let perdaAnual = perdaMensal * 12
+
+        // Calculo com o sensor
+        let sensorDiaria = perdaDiaria * 0.2
+        let sensorMensal = perdaMensal * 0.2
+        let sensorAnual = perdaAnual * 0.2
+
+
+        // Validando se todos os campos foram preenchidos
+        if(producaoDiaria <= 0 || percentErro <= 0 || valorLata <= 0 || diasTrabalhados <= 0 ){ 
+            div_mensagem.innerHTML = "Preencha todos os campos corretamente!"
+        }
+        else{
+            div_mensagem.innerHTML = `Sua perdas serão: <br><br>
+                                      <p> Diária: <span style="color:red;"<b>R$ ${perdaDiaria.toLocaleString('pt-BR')} </b></span></p>     
+                                      <p> Mensal: <span style="color:red;"<b>R$ ${perdaMensal.toLocaleString('pt-BR')} </b></span></p> 
+                                      <p> Anual: <span style="color:red;"<b>R$ ${perdaAnual.toLocaleString('pt-BR')} </b></span></p>
+                                      <br>
+
+                                      Economia com o Sensor;
+                                      <p> Diária: <span style="color:green;"<b>R$ ${sensorDiaria.toLocaleString('pt-BR')} </b></span></p>
+                                      <p> Mensal: <span style="color:green;"<b>R$ ${sensorMensal.toLocaleString('pt-BR')} </b></span></p>
+                                      <p> Anual: <span style="color:green;"<b>R$ ${sensorAnual.toLocaleString('pt-BR')} </b></span></p>` 
+                                      // toLocaleString é uma função que formata numeros, datas ou moedas conforme 
+                                      // o padrão de um país (Localização)
+                                      // foi utilizado para aparecer o separador de milhares EX: 1.200,20 invés de 1200.20
+        }
+    }
+</script>
