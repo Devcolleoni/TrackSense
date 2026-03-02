@@ -1,0 +1,162 @@
+body {
+    /* Remove margem padrão do navegador */
+    margin: 0;
+
+    /* Faz o body ocupar 100% da altura da tela (VH = viewport height - unidade de media)*/
+    height: 100vh;
+
+    /* Ativa o Flexbox (método moderno de alinhamento) */
+    display: flex;
+
+
+    /* Centraliza os elementos horizontalmente */
+    justify-content: center;
+
+    /* Centraliza os elementos verticalmente */
+    align-items: center;
+
+    /* Define a fonte do site */
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Cor de fundo da página */
+    background-color: #f4f6f8;
+}
+
+#div_contexto {
+    /* Cor de fundo dos inputs */
+    background-color: #f4f6f8;;
+
+    /* Espaçamento interno */
+    padding: 30px;
+
+    /*Margem direita*/
+    margin-right: 100px;
+
+    /*Margem esquerda*/
+    margin-left: 100px;
+
+    /* Centraliza textos dentro da div */
+    text-align: left;
+}
+
+#div_contexto h1 {
+    /*Tamanho da fonte do titulo*/
+    font-size: 70px;
+
+    /*Cor do texto do titulo*/
+    color: #000000;
+}
+
+#div_inputs {
+    /* Cor de fundo dos inputs */
+    background-color: white;
+
+    /* Espaçamento esquerdo */
+    padding-left: 50px;
+
+    /* Espaçamento direito */
+    padding-right: 50px;
+
+    /* Espaçamento inferior */
+    padding-bottom: 40px;
+
+    /* Espaçamento superior */
+    padding-top: 40px;
+
+    /* Margem direito */
+    margin-right: 200px;
+
+    /* Arredonda os cantos */
+    border-radius: 10px;   
+    
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+
+    /* Centraliza textos dentro da div */
+    text-align: left;
+}
+
+#div_inputs h1 {
+    /*Tamanho da fonte do titulo*/
+    font-size: 20px;
+
+    /*Colocando todas as letras maíusculas*/
+    text-transform: uppercase;
+
+    /*Cor do texto do titulo*/
+    color: #1a5fc1;
+
+    /* Centraliza textos dentro da div */
+    text-align: center;
+}
+
+input {
+    /* Largura do campo */
+    width: 400px;
+
+    /* Espaçamento interno */
+    padding: 8px;
+
+    /* Espaço acima do input */
+    margin-top: 5px;
+
+    /* Cantos arredondados */
+    border-radius: 5px;
+
+    /* Borda cinza leve */
+    border: 1px solid #ccc;
+}
+
+button {
+    /* Espaçamento interno */
+    padding: 10px 20px;
+
+    /*Margem superior*/
+    margin-top: 5px;
+
+    /*Largura do botao*/
+    width: 418px;
+
+    /* Remove borda padrão */
+    border: none;
+
+    /* Arredonda botão */
+    border-radius: 5px;
+
+    /* Cor de fundo */
+    background-color: #2c7be5;
+
+    /* Cor do texto */
+    color: white;
+
+    /* Texto em negrito */
+    font-weight: bold;
+
+    /* Muda o cursor ao passar o mouse */
+    cursor: pointer;
+}
+
+button:hover {
+    /* hover serve para modificar o estilo quando o cursor passa por cima! 
+    Cor um pouco mais escura ao passar o mouse*/
+    background-color: #1a5fc1;
+}
+
+#div_mensagem {
+    /* Espaço acima do resultado */
+    margin-top: 20px;
+
+    /* Centraliza o texto */
+    text-align: center;
+
+    /* Aumenta tamanho da fonte */
+    font-size: 18px;
+    
+}
+
+#div_mensagem p {
+    /* espaço entre linhas */
+    margin: 5px 0; 
+
+    /*Centralizando o texto*/
+    text-align: center; 
+}
