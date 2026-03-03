@@ -19,20 +19,22 @@
         <H1>Calculadora de Perdas Produtivas</H1> <br>
 
         <b>Produção Diária Esperada</b> <br>
-        <input type="number" id="ipt_prodDiaria"> <br><br>
+        <input type="number" id="ipt_prodDiaria" placeholder="Ex: 13000"> <br><br>
 
         <b>Produção Registrada Incorretamente (% Erro)</b> <br>
-        <input type="number" id="ipt_percErro"> <br><br>
+        <input type="number" id="ipt_percErro" placeholder="Ex: 10"> <br><br>
 
         <b>Valor por Lata (R$)</b> <br>
-        <input type="number" id="ipt_valorLata"> <br><br>
+        <input type="number" id="ipt_valorLata" placeholder="Ex: 3,5"> <br><br>
 
         <b>Dias Trabalhados no Mês</b> <br>
-        <input type="number" id="ipt_diasTrabalhados">
-
-        <div id="div_mensagem"></div> <br>
+        <input type="number" id="ipt_diasTrabalhados" placeholder="Ex: 22"> <br><br>
 
         <button onclick="calcular()">Calcular</button>
+
+        <div id="div_mensagem"></div> <br>
+        <div id="div_mensagemSensor"></div>
+
     </div>
 </body>
 </html>
@@ -50,6 +52,11 @@
         let perdaMensal = perdaDiaria * diasTrabalhados
         let perdaAnual = perdaMensal * 12
 
+        // Calculo com o sensor
+        let sensorDiaria = perdaDiaria * 0.2
+        let sensorMensal = perdaMensal * 0.2
+        let sensorAnual = perdaAnual * 0.2
+
         // Validando se todos os campos foram preenchidos
         if(producaoDiaria <= 0 || percentErro <= 0 || valorLata <= 0 || diasTrabalhados <= 0 ){ 
             div_mensagem.innerHTML = "Preencha todos os campos corretamente!"
@@ -62,6 +69,11 @@
                                       // toLocaleString é uma função que formata numeros, datas ou moedas conforme 
                                       // o padrão de um país (Localização)
                                       // foi utilizado para aparecer o separador de milhares EX: 1.200,20 invés de 1200.20
+
+            div_mensagemSensor.innerHTML = `Economia com o Sensor:
+                                            <p> Diária: <span style="color:green;"<b>R$ ${sensorDiaria.toLocaleString('pt-BR')} </b></span></p>
+                                            <p> Mensal: <span style="color:green;"<b>R$ ${sensorMensal.toLocaleString('pt-BR')} </b></span></p>
+                                            <p> Anual: <span style="color:green;"<b>R$ ${sensorAnual.toLocaleString('pt-BR')} </b></span></p>`
         }
     }
 </script>

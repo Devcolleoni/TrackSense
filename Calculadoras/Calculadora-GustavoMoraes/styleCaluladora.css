@@ -8,7 +8,6 @@ body {
     /* Ativa o Flexbox (método moderno de alinhamento) */
     display: flex;
 
-
     /* Centraliza os elementos horizontalmente */
     justify-content: center;
 
@@ -83,7 +82,7 @@ body {
     text-transform: uppercase;
 
     /*Cor do texto do titulo*/
-    color: #1a5fc1;
+    color: #ff0000;
 
     /* Centraliza textos dentro da div */
     text-align: center;
@@ -123,7 +122,7 @@ button {
     border-radius: 5px;
 
     /* Cor de fundo */
-    background-color: #2c7be5;
+    background-color: #ff0000;
 
     /* Cor do texto */
     color: white;
@@ -138,7 +137,7 @@ button {
 button:hover {
     /* hover serve para modificar o estilo quando o cursor passa por cima! 
     Cor um pouco mais escura ao passar o mouse*/
-    background-color: #1a5fc1;
+    background-color: #aa0404;
 }
 
 #div_mensagem {
@@ -154,6 +153,23 @@ button:hover {
 }
 
 #div_mensagem p {
+    /* espaço entre linhas */
+    margin: 5px 0; 
+
+    /*Centralizando o texto*/
+    text-align: center; 
+}
+
+#div_mensagemSensor {
+    /* Centraliza o texto */
+    text-align: center;
+
+    /* Aumenta tamanho da fonte */
+    font-size: 18px;
+    
+}
+
+#div_mensagemSensor p {
     /* espaço entre linhas */
     margin: 5px 0; 
 
