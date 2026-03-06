@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perdas Produtivas TrackSense</title>
 </head>
-<body>
+<body style="text-align: center;">
+    
     <div id="div_contexto">
-        <H1>TrackSense</H1>
-
-        <p>Simule as perdas produtivas causadas por erros de contagem e visualize
+        <H1 style="color: #4687A9;">TrackSense</H1>
+        <p>Simule as perdas produtivas causadas por erros de contagem e <br> visualize 
          o prejuízo financeiro da operação em poucos segundos. </p>
     </div>
 
     <div id="div_inputs">
-        <H1>Calculadora de Perdas Produtivas</H1> <br>
+        <H1 style="color: black;">Calculadora de Perdas Produtivas</H1> <br>
 
         <b>Produção Diária Esperada</b> <br>
         <input type="number" id="ipt_prodDiaria"> <br><br>
@@ -30,7 +30,7 @@
 
         <div id="div_mensagem"></div> <br>
 
-        <button onclick="calcular()">Calcular</button>
+        <button style="background-color: #1D3C4C; color: white; width: 100px; height: 30px;" onclick="calcular()"><b>Calcular</b></button>
     </div>
 </body>
 </html>
@@ -53,6 +53,9 @@
         let sensorMensal = perdaMensal * 0.2
         let sensorAnual = perdaAnual * 0.2
 
+        // Calculo simples de retorno do investimento
+        let investimento = 5000
+        let diasRetorno = investimento / sensorDiaria
 
         // Validando se todos os campos foram preenchidos
         if(producaoDiaria <= 0 || percentErro <= 0 || valorLata <= 0 || diasTrabalhados <= 0 ){ 
@@ -68,7 +71,10 @@
                                       Economia com o Sensor;
                                       <p> Diária: <span style="color:green;"<b>R$ ${sensorDiaria.toLocaleString('pt-BR')} </b></span></p>
                                       <p> Mensal: <span style="color:green;"<b>R$ ${sensorMensal.toLocaleString('pt-BR')} </b></span></p>
-                                      <p> Anual: <span style="color:green;"<b>R$ ${sensorAnual.toLocaleString('pt-BR')} </b></span></p>` 
+                                      <p> Anual: <span style="color:green;"<b>R$ ${sensorAnual.toLocaleString('pt-BR')} </b></span></p>
+
+                                      <br>
+                                      <b>O investimento será recuperado em aproximadamente ${diasRetorno.toFixed(0)} dias</b>` 
                                       // toLocaleString é uma função que formata numeros, datas ou moedas conforme 
                                       // o padrão de um país (Localização)
                                       // foi utilizado para aparecer o separador de milhares EX: 1.200,20 invés de 1200.20
