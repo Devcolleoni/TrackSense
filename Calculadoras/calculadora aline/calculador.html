@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackSense</title>
+</head>
+
+<body>
+    <h1>Calculadora Financeira - TrackSense</h1>
+
+    <h3>Digite os dados:</h3>
+
+    Produção diária:
+    <input id="input_producao"><br><br>
+
+    Valor por lata:
+    <input id="input_valor"><br><br>
+
+    % de erro manual:
+    <input id="input_erro"><br><br>
+
+    Dias trabalhados no mês:
+    <input id="input_dias"><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h3>Resultado:</h3>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+<script>
+
+    function calcular() {
+
+        let producao = Number(input_producao.value);
+        let valor = Number(input_valor.value);
+        let erro = Number(input_erro.value);
+        let dias = Number(input_dias.value);
+
+        // 1️ Calcula perda mensal
+        let perdaMensal = producao * (erro / 100) * valor * dias;
+
+        // 2️ Sensor reduz 50% do erro
+        let economiaMensal = perdaMensal * 0.5;
+
+
+        resultado.innerHTML =
+            "Perda mensal atual: R$ " + perdaMensal.toFixed(2) + "<br>" +
+            "Economia mensal com TrackSense: R$ " + economiaMensal.toFixed(2);
+
+    }
+
+</script>
